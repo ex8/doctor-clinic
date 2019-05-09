@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Appointments - Doctor Clinic{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        {% for appointment in appointments %}
+            <p>{{ appointment.date }}</p>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
