@@ -3,9 +3,9 @@
 {% block title %}Rooms - Doctor Clinic{% endblock title %}
 
 {% block content %}
-    <div class="container">
-        {% for room in rooms %}
-            <p>{{ room.room_num }}</p>
-        {% endfor %}
-    </div>
+{% for room in rooms %}
+<li>
+    <p id="{{ room.room_num }}">{{ room.room_num }}</p>
+</li>
+{% endfor %}
 {% endblock content %}

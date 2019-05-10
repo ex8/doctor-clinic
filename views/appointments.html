@@ -3,10 +3,12 @@
 {% block title %}Appointments - Doctor Clinic{% endblock title %}
 
 {% block content %}
-    <div class="container">
-        {% for appointment in appointments %}
-            <p>{{ appointment.date }}</p>
-        {% endfor %}
-    </div>
-{% endblock content %}
 
+{% for appointment in appointments %}
+    <li>
+        <p id="{{ appointment.date }}">{{ appointment.date }}</p>
+    </li>
+{% endfor %}
+
+
+{% endblock content %}

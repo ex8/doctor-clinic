@@ -3,9 +3,9 @@
 {% block title %}Prescriptions - Doctor Clinic{% endblock title %}
 
 {% block content %}
-    <div class="container">
-        {% for prescription in prescriptions %}
-            <p>{{ prescription.b_name }}</p>
-        {% endfor %}
-    </div>
+{% for prescription in prescriptions %}
+<li>
+        <p id="{{ prescription.b_name }}">{{ prescription.b_name }}</p>
+    </li>
+{% endfor %}
 {% endblock content %}

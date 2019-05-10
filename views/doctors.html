@@ -3,10 +3,10 @@
 {% block title %}Doctors - Doctor Clinic{% endblock title %}
 
 {% block content %}
-    <div class="container">
-        {% for doctor in doctors %}
-            <p>{{ doctor.name }}</p>
-        {% endfor %}
-    </div>
-{% endblock content %}
+    {% for doctor in doctors %}
+    <li>
+        <p id="{{ doctor.name }}">{{ doctor.name }}</p>
+    </li>
+    {% endfor %}
 
+{% endblock content %}

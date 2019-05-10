@@ -1,20 +1,51 @@
 <html lang="en">
-    <head>
-        <meta charset="utf8" />
-        <link rel="shortcut icon" type="image/png" href="https://www.favicon.cc/logo3d/512858.png" />
-        <title>{% block title %}{% endblock title %}</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    </head>
 
-    <body>
-        {% include "layouts/navigation.html" %}
-        
-        {% block content %}
-        {% endblock content %}
+<head>
+    <meta charset="utf8" />
+    <link rel="shortcut icon" type="image/png" href="https://www.favicon.cc/logo3d/512858.png" />
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet"
+        href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="app.css"> -->
+</head>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    </body>
+<body>
+    {% include "layouts/navigation.html" %}
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="searchField" class="bmd-label-floating">Search</label>
+                <input type="text" class="form-control" id="searchField" oninput="filterResults()">
+            </div>
+            <div class="text-center pt-5">
+                <ul style="list-style:none;">
+
+                    {% block content %}
+                    {% endblock content %}
+                </ul>
+
+            </div>
+        </form>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+        crossorigin="anonymous"></script>
+    <script>
+        filterResults = () => {
+            let searchText = document.getElementById("searchField").value;
+            let foundID = document.getElementById(searchText);
+            foundID.style.backgroundColor = 'yellow';
+        }
+    </script>
+</body>
+
 </html>

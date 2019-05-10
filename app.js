@@ -14,38 +14,38 @@ app.set('view engine', 'html');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 // app.use(express.static(path.join(__dirname, 'public')));
 
 app.get(`/`, (req, res) => res.render('index'));
 app.get(`/appointments`, (req, res) => {
     db.any(`SELECT * FROM appointments`)
-    .then(appointments => res.render('appointments', {appointments}))
-    .catch(err => console.error(err));
+        .then(appointments => res.render('appointments', { appointments }))
+        .catch(err => console.error(err));
 });
 
 app.get(`/doctors`, (req, res) => {
     db.any(`SELECT * FROM doctors`)
-    .then(doctors => res.render('doctors', {doctors}))
-    .catch(err => console.error(err));
+        .then(doctors => res.render('doctors', { doctors }))
+        .catch(err => console.error(err));
 });
 
 app.get(`/patients`, (req, res) => {
     db.any(`SELECT * FROM patients`)
-    .then(patients => res.render('patients', {patients}))
-    .catch(err => console.error(err));
+        .then(patients => res.render('patients', { patients }))
+        .catch(err => console.error(err));
 });
 
 app.get(`/prescriptions`, (req, res) => {
     db.any(`SELECT * FROM prescriptions`)
-    .then(prescriptions => res.render('prescriptions', {prescriptions}))
-    .catch(err => console.error(err));
+        .then(prescriptions => res.render('prescriptions', { prescriptions }))
+        .catch(err => console.error(err));
 });
 
 app.get(`/rooms`, (req, res) => {
     db.any(`SELECT * FROM rooms`)
-    .then(rooms => res.render('rooms', {rooms}))
-    .catch(err => console.error(err));
+        .then(rooms => res.render('rooms', { rooms }))
+        .catch(err => console.error(err));
 });
 
 
